@@ -29,5 +29,5 @@ server.use("/user", userRouter);
 server.use("/products", productsRouter);
 
 server.listen(port, () => {
-  console.log(`Conected to PORT : ${PORT}`);
+  console.log(`Conected to PORT : ${port}`);
 });
