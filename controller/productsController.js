@@ -36,7 +36,7 @@ const getProductById = async (req,res) => {
 
 // Add product -> by admin
 const addProductData = async (req,res) => {
-    if(req.user.role !== admin) return res.status(403).json({ message: "Access denied: Admins only" });
+    if(req.user.role !== "admin") return res.status(403).json({ message: "Access denied: Admins only" });
 
     try {
         if (req.body) {
@@ -69,7 +69,7 @@ const addProductData = async (req,res) => {
 
 // update product data
 const updateProductData = async (req, res) => {
-    if(req.user.role != admin) return res.status(403).json({
+    if(req.user.role != "admin") return res.status(403).json({
         message: "Access denied: Admins only"
     })
 

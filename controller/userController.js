@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 
 // Fetch all users
 const getAllUsers = async (req,res) => {
-    if(req.user.role !== admin) return res.status(403).json({ message: "Access denied: Admins only" });
+    if(req.user.role !== "admin") return res.status(403).json({ message: "Access denied: Admins only" });
     
     try {
         const usersList = await User.find();
