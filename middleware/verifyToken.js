@@ -5,10 +5,12 @@ const verifyToken = (req, res, next) => {
     const authHeader = req.header['authorization'];
     const token = authHeader && authHeader.split(" ")[1];
 
+    console.log(`authHeader : ${authHeader}`);
+    console.log(`authHeader : ${token}`)
+
     // Check if token exists
     if (!token) return res.status(403).json({
-        authHeader: authHeader,
-        message: 'Access denied: No token provided'
+        message: 'Access denied: No token providedd'
     });
 
     try {
