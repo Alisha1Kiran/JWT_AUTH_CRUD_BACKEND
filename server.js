@@ -6,15 +6,14 @@ require("dotenv").config();
 
 const server = new express();
 const port = process.env.PORT;
+const mongooseUrl = process.env.MONGODB_URL;
 
 server.get("/", (req, res) => {
   res.send("Hello mern stack app !");
 });
 
 // MongoDB Connection
-const mongooseUrl = process.env.MONGODB_URL;
-mongoose
-  .connect(mongooseUrl)
+mongoose.connect(mongooseUrl)
   .then(() => {
     console.log("DB connected successfully");
   })
