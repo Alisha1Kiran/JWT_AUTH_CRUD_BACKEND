@@ -90,7 +90,7 @@ const userLogin = async (req, res) => {
 
 // Get user by id
 const getUserById = async (req,res) => {
-    const {userId} = req.params.id;
+    const userId = req.params.id;
 
     try {
         const userDetails = await User.findById(userId)
