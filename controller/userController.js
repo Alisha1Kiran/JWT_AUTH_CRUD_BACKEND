@@ -100,7 +100,7 @@ const getUserById = async (req,res) => {
         })
 
         res.status(200).json({
-            message: "Product found successfully",
+            message: "User found successfully",
             user: userDetails
         })
         
@@ -115,7 +115,7 @@ const getUserById = async (req,res) => {
 // Update user data
 const updateUserData = async (req, res) => {
 
-    const { userId } = req.params; // User ID from URL
+    const userId = req.params.id; // User ID from URL
     const updatedData = req.body; // Fields to update
 
     try {
@@ -144,7 +144,7 @@ const updateUserData = async (req, res) => {
 // Delete user
 const deleteUser = async (req, res) => {
 
-    const { userId } = req.params; // User ID from URL
+    const userId = req.params.id; // User ID from URL
     try {
         const deleteUser = await User.findByIdAndDelete(userId);
 

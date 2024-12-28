@@ -16,10 +16,10 @@ userRouter.get('/', verifyToken, getAllUsers);
 // Delete products
 userRouter.get('/:id', getUserById);
 
-// Delete products
-userRouter.delete('/:id', updateUserData);
-
 // Update products data
-userRouter.put('/:id', deleteUser);
+userRouter.put('/:id', updateUserData);
+
+// Delete products
+userRouter.delete('/:id', deleteUser);
 
 module.exports = userRouter;
