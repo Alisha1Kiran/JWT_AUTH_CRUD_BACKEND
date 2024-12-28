@@ -75,29 +75,6 @@ const addProductData = async (req, res) => {
           newProduct: savedProduct,
         });
       });
-
-      // Pre-save hook to generate custom ID
-    await product.pre("save", async function (next) {
-    console.log("Inside pre-save hook try");
-    console.log("This : ", this);
-    if (!this.isNew) {
-      console.log("Not a new document");
-      return next(); // Only run for new documents
-    }
-  
-    try {
-      console.log("Inside pre-save hook try");
-      const lastProduct = await mongoose
-        .model("Product")
-        .findOne()
-        .sort({ id: -1 });
-      this.id = lastProduct ? lastProduct.id + 1 : 1; // Increment the ID or start at 1
-      next();
-    } catch (error) {
-      console.log("Error in pre-save hook:", error);
-      next(error);
-    }
-  });
     }
   } catch (error) {
     res.status(500).json({
