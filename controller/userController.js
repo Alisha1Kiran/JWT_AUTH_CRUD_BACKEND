@@ -116,12 +116,12 @@ const getUserById = async (req,res) => {
 const updateUserData = async (req, res) => {
 
     const userId = req.params.id; // User ID from URL
-    const updatedData = req.body; // Fields to update
+    const userDataToUpdate = req.body; // Fields to update
 
     try {
         const updatedUser = await User.findByIdAndUpdate(
             userId,
-            updatedUser,
+            userDataToUpdate,
             { new: true, runValidators: true } // Return updated document and validate changes
         );
         
@@ -131,7 +131,7 @@ const updateUserData = async (req, res) => {
 
         res.status(200).json({
             message: 'User updated successfully',
-            updatedProduct,
+            updatedUser,
         });
     } catch (error) {
         res.status(500).json({
