@@ -91,7 +91,7 @@ const updateProductData = async (req, res) => {
       message: "Access denied: Admins only",
     });
 
-  const { productId } = req.params; // Product ID from URL
+  const productId = req.params.id; // Product ID from URL
   const updatedData = req.body; // Fields to update
 
   try {
@@ -124,7 +124,7 @@ const deleteProduct = async (req, res) => {
       message: "Access denied: Admins only",
     });
 
-  const { productId } = req.params; // Product ID from URL
+  const productId = req.params.id; // Product ID from URL
   try {
     const deletedProduct = await Product.findByIdAndDelete(productId);
 
