@@ -40,11 +40,12 @@ const addProductData = async (req,res) => {
 
     try {
         if (req.body) {
-            const {productName, description, image, price, stock} = req.body;
+            const {productName, category, description, image, price, stock} = req.body;
         }    
         // create new product document
         const product = new Product({
             productName,
+            category,
             description,
             image,
             price,
