@@ -44,35 +44,35 @@ const addProductData = async (req, res) => {
       console.log(`product body : ${req.body}`);
       const { productName, category, description, image, price, stock } =
         req.body;
-    }
 
-    if (
-      !productName ||
-      !category ||
-      !description ||
-      !image ||
-      !price ||
-      !stock
-    ) {
-      return res.status(400).json({ message: "All fields are required" });
-    }
-    // create new product document
-    const product = new Product({
-      productName,
-      category,
-      description,
-      image,
-      price,
-      stock,
-    });
-
-    // posting product details to db
-    await product.save().then((savedProduct) => {
-      res.status(200).json({
-        message: "Product added successfully",
-        newProduct: savedProduct,
+      if (
+        !productName ||
+        !category ||
+        !description ||
+        !image ||
+        !price ||
+        !stock
+      ) {
+        return res.status(400).json({ message: "All fields are required" });
+      }
+      // create new product document
+      const product = new Product({
+        productName,
+        category,
+        description,
+        image,
+        price,
+        stock,
       });
-    });
+
+      // posting product details to db
+      await product.save().then((savedProduct) => {
+        res.status(200).json({
+          message: "Product added successfully",
+          newProduct: savedProduct,
+        });
+      });
+    }
   } catch (error) {
     res.status(500).json({
       message: "Error adding product",
