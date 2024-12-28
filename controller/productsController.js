@@ -41,6 +41,7 @@ const addProductData = async (req, res) => {
 
   try {
     if (req.body) {
+      console.log(`product body : ${req.body}`);
       const { productName, category, description, image, price, stock } =
         req.body;
     }
