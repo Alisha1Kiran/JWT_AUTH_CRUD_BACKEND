@@ -120,7 +120,7 @@ const updateUserData = async (req, res) => {
 
     try {
         const updatedUser = await User.findByIdAndUpdate(
-            productId,
+            userId,
             updatedUser,
             { new: true, runValidators: true } // Return updated document and validate changes
         );
