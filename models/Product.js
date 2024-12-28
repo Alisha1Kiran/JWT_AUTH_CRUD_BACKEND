@@ -9,7 +9,7 @@ const productSchema = new mongoose.Schema({
     image : { type: String, required: true },
     price: { type: Number, required: true },
     stock: { type: Number, required: true }
-})
+}, { _id: false });
 
 // Pre-save hook to generate customId
 productSchema.pre('save', async function (next) {
