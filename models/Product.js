@@ -17,6 +17,7 @@ const productSchema = new mongoose.Schema(
 // Pre-save hook to generate custom ID
 productSchema.pre("save", async function (next) {
   console.log("Inside pre-save hook try");
+  console.log("This : ", this);
   if (!this.isNew) {
     console.log("Not a new document");
     return next(); // Only run for new documents
