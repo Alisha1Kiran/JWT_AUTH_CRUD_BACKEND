@@ -65,8 +65,11 @@ const addProductData = async (req, res) => {
         stock,
       });
 
+      console.log('Before saving product');
+
       // posting product details to db
       await product.save().then((savedProduct) => {
+        console.log("Inside product save");
         res.status(200).json({
           message: "Product added successfully",
           newProduct: savedProduct,
