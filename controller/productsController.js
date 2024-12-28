@@ -33,7 +33,7 @@ const getProductById = async (req, res) => {
     });
   }
 };
-  
+
 // Add product -> by admin
 const addProductData = async (req, res) => {
   if (req.user.role !== "admin")
@@ -65,7 +65,7 @@ const addProductData = async (req, res) => {
         stock,
       });
 
-      console.log('Before saving product');
+      console.log("Before saving product");
 
       // posting product details to db
       await product.save().then((savedProduct) => {
@@ -119,7 +119,7 @@ const updateProductData = async (req, res) => {
 
 // Delete product from db
 const deleteProduct = async (req, res) => {
-  if (req.user.role != admin)
+  if (req.user.role !== "admin")
     return res.status(403).json({
       message: "Access denied: Admins only",
     });
