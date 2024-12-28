@@ -41,7 +41,7 @@ const addProductData = async (req, res) => {
 
   try {
     if (req.body) {
-      console.log(`product body : ${req.body}`);
+      console.log("product body : " , req.body);
       const { productName, category, description, image, price, stock } =
         req.body;
 
@@ -62,7 +62,7 @@ const addProductData = async (req, res) => {
         description,
         image,
         price,
-        stock,
+        stock
       });
 
       console.log("Before saving product");
