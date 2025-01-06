@@ -11,7 +11,8 @@ const mongooseUrl = process.env.MONGODB_URL;
 
 const allowedOrigins = [
   "http://localhost:5173",  // Local development
-  "https://jwt-auth-crud-frontend.onrender.com"  // frontend production domain
+  "https://jwt-auth-crud-frontend.onrender.com", // frontend production domain
+  "https://jwtauth-crud-frontend.netlify.app"  // frontend production domain
 ];
 // Use cors middleware
 server.use(
