@@ -12,7 +12,7 @@ const getAllProducts = async (req, res) => {
 
 // View product by id
 const getProductById = async (req, res) => {
-  const { productId } = req.params;
+  const productId  = req.params.id;
   console.log("Product ID: ", productId);
 
   try {
