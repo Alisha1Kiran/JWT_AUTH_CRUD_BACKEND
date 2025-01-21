@@ -33,7 +33,7 @@ const addUser = async (req, res) => {
         role: "user",
       });
 
-      // posrting user details to db
+      // posting user details to db
       await newUser
         .save()
         .then((savedUser) => {
@@ -147,7 +147,7 @@ const updateUserData = async (req, res) => {
 const deleteUser = async (req, res) => {
   const userId = req.params.id; // User ID from URL
   try {
-    const deleteUser = await User.findByIdAndDelete(userId);
+    const deleteUser = await User.findOneAndDelete(userId);
 
     if (!deleteUser) {
       return res.status(404).json({ message: "User not found" });
